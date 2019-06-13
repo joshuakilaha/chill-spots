@@ -7,7 +7,6 @@
         <v-list-tile
           v-for="item in menuItems"
         :key="item.title"
-        router
         :to ="item.link">
           <v-list-tile-action>
           </v-list-tile-action>
@@ -25,9 +24,8 @@
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-xs-only">
         <v-btn
-                flat v-for="item in menuItems"
-                :key="item.title"
-        router
+        flat v-for="item in menuItems"
+        :key="item.title"
         :to="item.link">
          {{item.title}}
           <v-icon right>{{item.icon}}</v-icon>
