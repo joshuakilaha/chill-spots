@@ -10,6 +10,7 @@ import Signin from './components/User/Signin'
 
 
 
+
 Vue.use(Router);
 
 export default new Router({
@@ -34,6 +35,7 @@ export default new Router({
       {
           path: '/spots/:id',
           name: 'spots/spot',
+          props: true,
           component: spot
       },
 
