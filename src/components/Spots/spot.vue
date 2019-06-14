@@ -12,7 +12,7 @@
                     </v-card-media>
 
                     <v-card-text>
-                       <div class="info--text">{{spot.date}} Venue </div>
+                       <div class="info--text">{{spot.date}}</div>
                         <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             Accusantium atque autem doloremque ducimus et incidunt ipsum libero nostrum,
                             quasi voluptatum. Accusamus adipisci architecto distinctio doloremque ipsa
