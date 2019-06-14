@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import spots from './components/Spots/spots'
 import CreateSpots from './components/Spots/CreateSpots'
+import spot from './components/Spots/spot'
 import Profile from './components/User/Profile'
 import Signup from './components/User/Signup'
 import Signin from './components/User/Signin'
@@ -28,6 +29,12 @@ export default new Router({
           path: '/CreateSpots',
           name: 'spots/create',
           component: CreateSpots
+      },
+
+      {
+          path: '/spots/:id',
+          name: 'spots/spot',
+          component: spot
       },
 
       {

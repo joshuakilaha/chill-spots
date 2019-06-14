@@ -11,7 +11,7 @@
 
         <v-layout row wrap justify-space-around class="mt-2">
             <v-flex xs10 class="align-content-center">
-                <v-carousel
+                <v-carousel style="cursor: pointer"
                         delimiter-icon="stop"
                         prev-icon="mdi-arrow-left"
                         next-icon="mdi-arrow-right">
@@ -19,6 +19,7 @@
                     <v-carousel-item
                             v-for="spot in spots"
                             :key="spot.id"
+                            @click="onloadSpot(spot.id)"
                             :src="spot.imageUrl">
                         <div class="title">
                             {{ spot.title }}
@@ -55,8 +56,13 @@
                         id: '1321321', title: 'New York'},
                 ]
             }
-        }
+        },
+      methods:{
+        onloadSpot (id){
+            this.$router.push('/spots/' +id)
 
+        }
+      }
   }
 </script>
 
