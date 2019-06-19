@@ -54,14 +54,26 @@ export default {
     return {
       //
         sideRight: false,
-        menuItems: [
-            {icon:'visibility', title: 'View Sports', link: '/spots'},
-            {icon: 'room', title: 'Organize Sports',link: '/CreateSpots'},
-            {icon: 'person', title: 'Profile', link: '/Profile'},
-            {icon: 'face', title: 'Sign up',link: '/Signup' },
-            {icon: 'lock_open', title: 'Sign in', link: '/Signin'},
-            ]
     }
-  }
+  },
+    computed: {
+      menuItems (){
+          let menuItems = [
+              {icon: 'face', title: 'Sign up',link: '/Signup' },
+              {icon: 'lock_open', title: 'Sign in', link: '/Signin'},
+          ]
+          if (this.userisAuthenticated){
+               menuItems = [
+                   {icon:'visibility', title: 'View Sports', link: '/spots'},
+                   {icon: 'room', title: 'Organize Sports',link: '/CreateSpots'},
+                   {icon: 'person', title: 'Profile', link: '/Profile'},
+               ]
+          }
+          return menuItems
+      },
+        userisAuthenticated (){
+          return this.$store.getters.user !== null && this.$store.getters.user !== undefined
+        }
+    }
 }
 </script>
