@@ -1,5 +1,12 @@
 <template>
     <v-container>
+
+        <v-layout justify-space-around v-if="error">
+            <v-flex xs12 sm6 offset-3>
+                <app-alert @dismissed="onDismissed" :text="error.message"></app-alert>
+            </v-flex>
+        </v-layout>
+
         <v-layout justify-space-around>
             <v-flex xs12 sm6 offset-3>
                 <v-card-text>
@@ -31,7 +38,12 @@
 
                             <v-layout row>
                                 <v-flex xs12>
-                                    <v-btn type="submit">Sign In </v-btn>
+                                    <v-btn type="submit" :disabled="loading" :loading="loading">
+                                        Sign In
+                                        <span slot="loader" class="custom-loader">
+                                            <v-icon> cached</v-icon>
+                                        </span>
+                                    </v-btn>
                                 </v-flex>
                             </v-layout>
 
@@ -56,6 +68,12 @@
 
             user (){
                 return this.$store.getters.user
+            },
+            error(){
+                return this.$store.getters.error
+            },
+            loading(){
+                return this.$store.getters.loading
             }
         },
         watch :{
@@ -69,7 +87,53 @@
             onSignIn(){
                 this.$store.dispatch('signIn' ,{email: this.email, password: this.password})
 
+            },
+            onDismissed(){
+                this.$store.dispatch('clearError')
             }
         }
     }
 </script>
+
+
+
+
+
+<style>
+    .custom-loader {
+        animation: loader 1s infinite;
+        display: flex;
+    }
+    @-moz-keyframes loader {
+        from {
+            transform: rotate(0);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    @-webkit-keyframes loader {
+        from {
+            transform: rotate(0);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    @-o-keyframes loader {
+        from {
+            transform: rotate(0);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    @keyframes loader {
+        from {
+            transform: rotate(0);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+</style>
