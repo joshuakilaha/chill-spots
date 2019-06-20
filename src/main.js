@@ -27,6 +27,7 @@ new Vue({
             messagingSenderId: '892952378064',
             appId: '1:892952378064:web:666041cef0df89f4'
     })
+        this.$store.dispatch('loadspots')
     }
 
 }).$mount('#app');

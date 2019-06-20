@@ -9,7 +9,21 @@
             </v-flex>
         </v-layout>
 
-        <v-layout row wrap justify-space-around class="mt-2">
+        <v-layout row justify-space-around>
+            <v-flex xs12 class="text-xs-center">
+                <div class="text-xs-center">
+                    <v-progress-circular
+                            indeterminate
+                            color="primary"
+                    :width="7"
+                    :size="70"
+                    v-if="loading">
+                    </v-progress-circular>
+                </div>
+            </v-flex>
+        </v-layout>
+
+        <v-layout row wrap justify-space-around class="mt-2" v-if ="!loading">
             <v-flex xs10 class="align-content-center">
                 <v-carousel style="cursor: pointer"
                         delimiter-icon="stop"
@@ -48,7 +62,10 @@
         computed: {
         spots() {
             return this.$store.getters.featuredspots
-        }
+        },
+            loading(){
+            return this.$store.getters.loading
+            }
         },
 
 
