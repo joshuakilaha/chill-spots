@@ -78,6 +78,7 @@
   }
 </script>
 
+
 <style scoped>
     .title{
         position: absolute;

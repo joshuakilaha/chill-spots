@@ -1,7 +1,7 @@
 <template>
    <v-container>
        <v-layout row wrap justify-space-round v-for="spot in spots" :key="spot.id" class="mb-2">
-           <v-flex xs12 sm3 md10 offset-sm1 offset-md2 >
+           <v-flex xs12 sm5 md9 offset-sm1 offset-md2 >
                <v-card class="info">
                    <v-container fluid>
                        <v-layout row wrap justify-space-round>

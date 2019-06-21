@@ -7,6 +7,7 @@ import spot from './components/Spots/spot'
 import Profile from './components/User/Profile'
 import Signup from './components/User/Signup'
 import Signin from './components/User/Signin'
+import AuthGuard from './filters/auth-guard'
 
 
 
@@ -29,7 +30,8 @@ export default new Router({
       {
           path: '/CreateSpots',
           name: 'spots/create',
-          component: CreateSpots
+          component: CreateSpots,
+          beforeEnter: AuthGuard
       },
 
       {
@@ -42,7 +44,8 @@ export default new Router({
       {
           path: '/Profile',
           name: 'Profile',
-          component: Profile
+          component: Profile,
+          beforeEnter: AuthGuard
       },
 
       {
