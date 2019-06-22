@@ -80,8 +80,8 @@ export default {
           ]
           if (this.userisAuthenticated){
                menuItems = [
-                   {icon:'visibility', title: 'View Sports', link: '/spots'},
-                   {icon: 'room', title: 'Organize Sports',link: '/CreateSpots'},
+                   {icon:'visibility', title: 'View Spots', link: '/spots'},
+                   {icon: 'room', title: 'Organize Spots',link: '/CreateSpots'},
                    {icon: 'person', title: 'Profile', link: '/Profile'},
                ]
           }
