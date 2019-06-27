@@ -6,12 +6,13 @@ import router from './router'
 import store from './store'
 import DateFilter from './filters/date'
 import Alert from './components/shared/alert'
-
+import Editspot from './components/Spots/Edit/EditspotDialog'
 
 Vue.config.productionTip = false;
 
 Vue.filter('date', DateFilter)
 Vue.component('app-alert', Alert)
+Vue.component('app-edit-spot', Editspot)
 
 new Vue({
   router,

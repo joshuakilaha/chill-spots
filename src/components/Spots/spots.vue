@@ -1,10 +1,10 @@
 <template>
    <v-container>
-       <v-layout row wrap justify-space-round v-for="spot in spots" :key="spot.id" class="mb-2">
+       <v-layout row wrap justify-space-around v-for="spot in spots" :key="spot.id" class="mb-2">
            <v-flex xs12 sm5 md9 offset-sm1 offset-md2 >
                <v-card class="info">
                    <v-container fluid>
-                       <v-layout row wrap justify-space-round>
+                       <v-layout row wrap justify-space-around>
                            <v-flex xs5 sm1 md3>
                                <v-card-media
                                    :src="spot.imageUrl"
