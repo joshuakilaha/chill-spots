@@ -13,8 +13,7 @@ export default new Vuex.Store({
       error: null
 
   },
-
-  mutations: {
+    mutations: {
       setLoadedSpots (state,payload){
           state.loadedspots= payload
       },
@@ -125,19 +124,19 @@ export default new Vuex.Store({
 
       },
 
-      updateSpotData({commit},payload){
+      UpdateSpotData({commit},payload){
           commit('setLoading', true)
-          const updateobj = {}
+          const updateObj = {}
           if (payload.title){
-              updateobj.title = payload.title
+              updateObj.title = payload.title
           }
-          if(payload.description){
-              updateobj.description = payload.description
+          if(payload.description) {
+              updateObj.description = payload.description
           }
           if(payload.date){
-              updateobj.date = payload.date
+              updateObj.date = payload.date
           }
-          firebase.database().ref('spots').child(payload.id).update(updateobj)
+           firebase.database().ref('spots').child(payload.id).update(updateObj)
               .then(() => {
                   commit('setLoading',false)
                   commit('updateSpot', payload)
@@ -151,7 +150,7 @@ export default new Vuex.Store({
 
       signUp({commit},payload) {
           commit('setLoading',true)
-          commit('clearErroe')
+          commit('clearError')
         firebase.auth().createUserWithEmailAndPassword(payload.email,payload.password)
             .then(
                 user => {

@@ -30,6 +30,10 @@
                     </v-card-media>
                     <v-card-text>
                        <div class="info--text">{{spot.date | date}}- {{spot.location}}</div>
+                        <div>
+                            <app-edit-spot-date :spot ="spot" v-if="userIsCreator">
+                                </app-edit-spot-date>f
+                        </div>
                         <div>{{spot.description}}</div>
                     </v-card-text>
                     <v-card-action>
@@ -49,9 +53,6 @@
             spot (){
                 return this.$store.getters.loadedspot(this.id)
             },
-            loading(){
-                return this.$store.getters.loading
-            },
             userIsAuthenticated (){
                 return this.$store.getters.user !== null && this.$store.getters.user !== undefined
             },
@@ -60,7 +61,10 @@
                     return false
                 }
                 return this.$store.getters.user.id === this.spot.creatorId
-            }
+            },
+            loading(){
+                return this.$store.getters.loading
+            },
 
         }
     }

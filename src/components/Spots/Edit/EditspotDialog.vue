@@ -19,14 +19,14 @@
                                     id="title"
                                     v-model="editedTitle"
                                     required></v-text-field>
-                            <v-text-field
+                            <v-textarea
                                 name="description"
                                 label="Description"
                                 id="description"
-                                multi-line
+                                outline=""
                                 v-model="editedDescription"
                                 required>
-                            </v-text-field>
+                            </v-textarea>
                         </v-card-text>
                     </v-flex>
                 </v-layout>
@@ -60,8 +60,7 @@
                     return
                 }
                 this.editDialog = false
-
-                this.$store.dispatch('updateSpotData', {
+                this.$store.dispatch('UpdateSpotData', {
                     id: this.spot.id,
                     title: this.spot.editedTitle,
                     description: this.spot.editedDescription
