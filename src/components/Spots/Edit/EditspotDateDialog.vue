@@ -15,7 +15,7 @@
                 <v-layout justify-space-around>
                     <v-flex xs12>
                         <v-date-picker v-model="editableDate" style="width: 100%" actions>
-                            <template scope="{save, cancel}">
+                            <template scope="">
                                 <v-btn class="blue--text darken-1" flat @click.native="editDialog = false">Close</v-btn>
                                 <v-btn class="blue--text darken-1" flat @click.native="onSaveChanges">Save</v-btn>
                             </template>
@@ -51,7 +51,6 @@
                     id: this.spot.id,
                     date: new Date
                 })
-
                 newDate.setUTCDate(newDay)
                 newMonth.setUTCMonth(newMonth)
                 newYear.setUTCFullYear(newYear)
@@ -63,6 +62,4 @@
 
         }
     }
-
-
 </script>

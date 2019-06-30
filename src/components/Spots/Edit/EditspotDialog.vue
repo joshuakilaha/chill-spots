@@ -35,7 +35,7 @@
                     <v-flex xs12>
                         <v-card-actions>
                         <v-btn flat class="primary--text darken-1" @click="editDialog = false">Close</v-btn>
-                            <v-btn flat class="primary--text darken-1" @click="onSaveChanges">Save</v-btn>
+                            <v-btn flat class="primary--text darken-1" @click.native="onSaveChanges">Save</v-btn>
                         </v-card-actions>
                     </v-flex>
                 </v-layout>

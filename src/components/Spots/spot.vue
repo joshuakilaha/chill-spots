@@ -30,15 +30,21 @@
                     </v-card-media>
                     <v-card-text>
                        <div class="info--text">{{spot.date | date}}- {{spot.location}}</div>
+
+                        <v-divider></v-divider>
+
                         <div>
+                            <v-spacer></v-spacer>
                             <app-edit-spot-date :spot ="spot" v-if="userIsCreator">
                                 </app-edit-spot-date>f
                         </div>
+
                         <div>{{spot.description}}</div>
                     </v-card-text>
+
                     <v-card-action>
                         <v-spacer></v-spacer>
-                        <v-btn class="primary">Register</v-btn>
+                        <register-dialog :spotId="spot.id"></register-dialog>
                     </v-card-action>
                 </v-card>
             </v-flex>
@@ -47,7 +53,9 @@
 </template>
 
 <script>
+    import RegisterDialog from "./Registration/RegisterDialog";
     export default {
+        components: {RegisterDialog},
         props: ['id'],
         computed: {
             spot (){
