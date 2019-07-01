@@ -25,7 +25,7 @@ export default new Vuex.Store({
 
         unregisterUserFromSpot(state,payload){
           const registeredspots = state.user.registeredspots
-            registeredspots.slice(registeredspots.findIndex(spot => spot.id === payload), 1)
+            registeredspots.splice(registeredspots.findIndex(spot => spot.id === payload), 1)
             Reflect.deleteProperty(state.user.fbkey,payload)
         },
 
@@ -251,6 +251,31 @@ export default new Vuex.Store({
             registeredspots: [],
             fbkey:{}
         })
+      },
+      fetchUserData({commit, getters}){
+          commit('setLoading', true)
+          firebase.database().ref('/users/' + getters.user.id + '/registration/').once('value')
+              .then(data => {
+                  const  dataPairs = data.val()
+                  let registeredspots = []
+                  let swappedPairs = {}
+                  for (let key in dataPairs){
+                      registeredspots.push(dataPairs[key])
+                      swappedPairs[dataPairs[key]] = key
+                  }
+                  const updatedUser = {
+                      id: getters.user.id,
+                      registeredspots: registeredspots,
+                      fbkey: swappedPairs
+                  }
+                  commit('setLoading', false)
+                  commit('setUser', updatedUser)
+              })
+              .catch(error => {
+                  // eslint-disable-next-line no-console
+              console.log(error)
+              commit('setLoading', false)
+          })
       },
 
       logout({commit}){

@@ -44,7 +44,7 @@
 
                     <v-card-action>
                         <v-spacer></v-spacer>
-                        <register-dialog :spotId="spot.id"></register-dialog>
+                        <register-dialog :spotId="spot.id" v-if="userIsAuthenticated && !userIsCreator"></register-dialog>
                     </v-card-action>
                 </v-card>
             </v-flex>
