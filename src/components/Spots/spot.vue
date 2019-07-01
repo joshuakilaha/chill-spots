@@ -36,7 +36,7 @@
                         <div>
                             <v-spacer></v-spacer>
                             <app-edit-spot-date :spot ="spot" v-if="userIsCreator">
-                                </app-edit-spot-date>f
+                                </app-edit-spot-date>
                         </div>
 
                         <div>{{spot.description}}</div>
