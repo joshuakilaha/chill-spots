@@ -9,6 +9,7 @@ import Alert from './components/shared/alert'
 import Editspot from './components/Spots/Edit/EditspotDialog'
 import EditDatespot from './components/Spots/Edit/EditspotDateDialog'
 import RegisterDialog from './components/Spots/Registration/RegisterDialog'
+import 'material-design-icons-iconfont/dist/material-design-icons.css'
 Vue.config.productionTip = false;
 
 Vue.filter('date', DateFilter)
