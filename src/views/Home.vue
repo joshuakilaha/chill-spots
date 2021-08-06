@@ -45,7 +45,7 @@
 
         <v-layout row wrap justify-space-around class="mt-2">
             <v-flex xs12 sm6 class="text-xs-center">
-                <p>Join our spots</p>
+                <p>Join our spotss</p>
             </v-flex>
         </v-layout>
 
